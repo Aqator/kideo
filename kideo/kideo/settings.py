@@ -31,12 +31,32 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+	
+	#feincms
+	'feincms',
+    'feincms.module.page',
+    'feincms.module.medialibrary',
+    'cms',
+	
+	
+	#django standard
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.request',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -68,6 +88,17 @@ TEMPLATES = [
     },
 ]
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'kideo_db', # Or path to database file if using sqlite3.
+        'USER': 'root', # Not used with sqlite3.
+        'PASSWORD': 'root', # Not used with sqlite3.
+        'HOST': '/Applications/MAMP/tmp/mysql/mysql.sock', # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '', # Set to empty string for default. Not used with sqlite3.
+    }
+}
+
 WSGI_APPLICATION = 'kideo.wsgi.application'
 
 
@@ -76,11 +107,23 @@ WSGI_APPLICATION = 'kideo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'kideo_db',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '/Applications/MAMP/tmp/mysql/mysql.sock',
+        'PORT': '8889',
     }
 }
 
+
+TEMPLATE_DIRS = (
+
+    # List of template directories.
+    # Example:
+    os.path.join(BASE_DIR, 'templates'),
+
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
