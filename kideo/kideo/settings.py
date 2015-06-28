@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
 # Quick-start development settings - unsuitable for production
@@ -34,10 +34,10 @@ INSTALLED_APPS = (
 	
 	#feincms
 	'feincms',
+	'gallery',
     'feincms.module.page',
     'feincms.module.medialibrary',
     'cms',
-	
 	
 	#django standard
     'django.contrib.admin',
@@ -116,14 +116,21 @@ DATABASES = {
     }
 }
 
-
-TEMPLATE_DIRS = (
-
-    # List of template directories.
-    # Example:
-    os.path.join(BASE_DIR, 'templates'),
-
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/

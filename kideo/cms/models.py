@@ -1,6 +1,7 @@
 from feincms.module.page.models import Page
 from django.utils.translation import ugettext_lazy as _
 from feincms.content.richtext.models import RichTextContent
+from gallery.models import GalleryContent
 
 Page.register_templates({
     'title': _('General FeinCMS Template Example'),
@@ -14,3 +15,4 @@ Page.register_templates({
 })
 
 Page.create_content_type(RichTextContent)
+Page.create_content_type(GalleryContent)

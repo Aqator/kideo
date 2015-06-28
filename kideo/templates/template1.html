@@ -1,3 +1,5 @@
+{% load feincms_tags %}
+
 <div id="header">
     {% block header %}
     {% for content in feincms_page.content.header %}
@@ -9,14 +11,6 @@
 <div id="content">
     {% block content %}
     {% for content in feincms_page.content.main %}
-        {{ content.render }}
-    {% endfor %}
-    {% endblock %}
-</div>
-
-<div id="sidebar">
-    {% block sidebar %}
-    {% for content in feincms_page.content.sidebar %}
         {{ content.render }}
     {% endfor %}
     {% endblock %}
