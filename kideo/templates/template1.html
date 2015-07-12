@@ -1,11 +1,24 @@
-{% load feincms_tags %}
-
+{% load feincms_tags feincms_page_tags staticfiles %}
+<head>
+	<link rel="stylesheet" type="text/css" href="{% static "assets/css/style.css" %}">
+</head>
+<body>
 <div id="header">
-    {% block header %}
-    {% for content in feincms_page.content.header %}
-        {{ content.render }}
-    {% endfor %}
-    {% endblock %}
+	<div class="header-top">
+		<div class="contact">
+			<a href="#" class="myButton">Inschrijven</a>
+			<a href="#" class="myButton2">Rondleiding</a>
+		</div>	
+	</div>
+    <div class="navigation">
+	    		<img src="{% static "assets/images/logo.svg" %}" style=" width:200px;">
+    <ul>
+{% feincms_nav feincms_page level=1 depth=1 as sublevel %}
+{% for p in sublevel %}
+   <li> <a href="{{ p.get_absolute_url }}">{{ p.title }}</a></li>
+{% endfor %}
+    </ul>
+        </div>
 </div>
 
 <div id="content">
@@ -23,3 +36,5 @@
     {% endfor %}
     {% endblock %}
 </div>
+
+</body>
