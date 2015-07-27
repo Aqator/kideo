@@ -1,6 +1,6 @@
 {% load feincms_tags feincms_page_tags staticfiles %}
 <head>
-	<link rel="stylesheet" type="text/css" href="{% static "assets/css/style.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "assets/css/style.css" %}" >
 </head>
 <body>
 <div id="header">
@@ -10,8 +10,9 @@
 			<a href="#" class="myButton2">Rondleiding</a>
 		</div>	
 	</div>
+
     <div class="navigation">
-	    		<img src="{% static "assets/images/logo.svg" %}" style=" width:200px;">
+	    		<img src="{% static "assets/images/logo.svg" %}"  style=" width:200px;">
     <ul>
 {% feincms_nav feincms_page level=1 depth=1 as sublevel %}
 {% for p in sublevel %}
@@ -19,6 +20,14 @@
 {% endfor %}
     </ul>
         </div>
+</div>
+<div id="banner">        
+    {% block header %}
+    {% for content in feincms_page.content.header %}
+        {% feincms_render_content content request %}
+    {% endfor %}
+    {% endblock %}
+        
 </div>
 
 <div id="content">
@@ -29,12 +38,49 @@
     {% endblock %}
 </div>
 
+<div id="locations">
+	
+	
+</div>
+
+<div id="news">
+	
+	
+</div>	
+
 <div id="footer">
-    {% block footer %}
-    {% for content in feincms_page.content.footer %}
-        {{ content.render }}
-    {% endfor %}
-    {% endblock %}
+	<div class="wrapper">
+	<ul>
+		<p> KIDEO </p>
+		<li>Over ons</li>
+		<li>Visie</li>
+		<li>Pedagogisch beleid</li>
+	</ul>
+	<ul>
+		<p> LOCATIES </p>
+		<li>Groningen</li>
+		<li>Drachten</li>
+		<li>Assen</li>
+	</ul>
+	<ul>
+		<p> CONTACT </p>
+		<li>Kideo Kinderdagverblijven</li>
+		<li>Hereweg 75-77</li>
+		<li>9725 AC Groningen</li>
+		<br>
+		<li>050-5252941</li>
+		<li>info@kideo.nl</li>
+		
+	</ul>
+	<ul>
+		<p> SOCIALMEDIA </p>
+		<li> <img src="{% static "assets/images/facebook-like.png" %}"></li>
+		<li> <img src="{% static "assets/images/twitter2.png" %}"></li>
+	</ul>
+	</div>			
+</div>
+<div id="copyright">
+	<p> © Copyright 2015 - Kideo Kinderdagverblijven, Groningen - Alle rechten voorbehouden.  </p>
 </div>
 
 </body>

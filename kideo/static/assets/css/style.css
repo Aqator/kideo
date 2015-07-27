@@ -10,7 +10,6 @@ body {
 
 .header-top {
 	height:30px;
-
 }
 
 #header {
@@ -26,7 +25,6 @@ body {
 }
 
 .navigation img {
-	
 	height:100px;
 	width:150px;
 }
@@ -83,7 +81,6 @@ body {
 }
 
 .myButton2 {
-	
 	background-color:#b0257d;
 	-moz-border-radius:4px;
 	-webkit-border-radius:4px;
@@ -106,3 +103,76 @@ body {
 	top:1px;
 }
 
+#content {
+	text-align: center;
+	width:900px;
+	margin-left: auto ;
+	margin-right: auto ;
+	margin-top:30px;
+	margin-bottom:30px;
+}
+
+#content h1 {
+	color:#0071bb;
+}
+
+#locations {
+	background: #0071bb;
+	height:400px;
+	width:100%;
+}
+
+#news {
+	height:400px;
+	width:100%;
+}
+
+#footer {
+	background: #AE2F8D;
+	width:100%;
+	padding-top:20px;
+	padding-bottom:20px;
+}
+
+.wrapper {
+	height:260px;
+	margin:0px auto;
+	padding:0px 20px;
+	width:100%;
+	max-width:1200px
+}
+
+#footer ul {
+	padding:0;
+	list-style-type: none;
+	display: block;
+	width:250px;
+	height:100px;
+	float:left;
+}
+
+#footer ul p {
+	font-weight: 900;
+	color:white;
+}
+
+#footer ul li {
+	color:white;
+	clear:left;
+	text-decoration: none;
+}
+
+#footer ul li img {
+	width:15%;
+	height:auto;
+}
+
+#copyright {
+	height:15px;
+	text-align:center;
+}
+
+#copyright p{
+	margin-top:5px !important;
+	margin-bottom:5px !important;
+}

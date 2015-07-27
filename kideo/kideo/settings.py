@@ -25,6 +25,8 @@ SECRET_KEY = 'g8q!&d%7e&i!0-zz%w*gg(l@focrbo-@@^1s-(_bi09nqpe*1@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+TEMPLATE_DEBUG = DEBUG
+
 ALLOWED_HOSTS = []
 
 
@@ -88,17 +90,6 @@ TEMPLATES = [
     },
 ]
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'kideo_db', # Or path to database file if using sqlite3.
-        'USER': 'root', # Not used with sqlite3.
-        'PASSWORD': 'root', # Not used with sqlite3.
-        'HOST': '/Applications/MAMP/tmp/mysql/mysql.sock', # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '', # Set to empty string for default. Not used with sqlite3.
-    }
-}
-
 WSGI_APPLICATION = 'kideo.wsgi.application'
 
 
@@ -149,9 +140,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/static/'
+ADMIN_MEDIA_PREFIX = '/static/admin/'
+
+STATIC_URL = os.path.join(BASE_DIR, '/static/')
+
+MEDIA_URL = 'media/'
+
+MEDIA_ROOT =  '/media/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, '/static/')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-    '/var/www/static/',
+
+    "/Users/mikepor/Projects/kideo/kideo/static",
+
 )
