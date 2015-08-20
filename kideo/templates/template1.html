@@ -83,4 +83,23 @@
 	<p> © Copyright 2015 - Kideo Kinderdagverblijven, Groningen - Alle rechten voorbehouden.  </p>
 </div>
 
+
+
 </body>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    
+<!-- write script to toggle class on scroll -->
+<script>
+$(document).ready(function() {
+  var $header = $("#header"),
+      $clone = $header.before($header.clone().addClass("clone"));
+
+  $(window).on("scroll", function() {
+    var fromTop = $("body").scrollTop();
+    $('body').toggleClass("down", (fromTop > 200));
+  });
+});
+
+
+</script>
